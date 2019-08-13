@@ -2,12 +2,14 @@
 const dotenv = require('dotenv');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const path = require('path');
-const PACKAGE_JSON = path.resolve(__dirname, 'package.json');
+
+const CWD = process.cwd();
+const IS_DEV = process.env.NODE_ENV === 'development';
 dotenv.config();
 
-const { name, peerDependencies } = require(PACKAGE_JSON);
+const PACKAGE_JSON = path.resolve(CWD, 'package.json');
 
-const IS_DEV = process.env.NODE_ENV === 'development';
+const { name, peerDependencies } = require(PACKAGE_JSON);
 
 module.exports = function configureWebpack({ css, typescript, sass }) {
   const config = {
@@ -22,7 +24,7 @@ module.exports = function configureWebpack({ css, typescript, sass }) {
       filename: './index.js',
       library: name,
       libraryTarget: 'umd',
-      path: path.resolve(__dirname, 'dist'),
+      path: path.resolve(CWD, 'dist'),
       umdNamedDefine: true,
     },
     performance: {
@@ -78,7 +80,7 @@ module.exports = function configureWebpack({ css, typescript, sass }) {
       config.externals.push(peerDependency);
       config.externals.push(new RegExp(`^${peerDependency}/.+$`));
       config.resolve.alias[peerDependency] = path.resolve(
-        __dirname,
+        CWD,
         `./node_modules/${peerDependency}`,
       );
     }
