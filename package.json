@@ -1,0 +1,41 @@
+{
+  "name": "configure-webpack",
+  "version": "1.0.0",
+  "author": "Charles Stover <configure-webpack@charlesstover.com>",
+  "description": "Easily generates a typical Webpack configuration.",
+  "homepage": "https://github.com/CharlesStover/configure-webpack#readme",
+  "license": "MIT",
+  "main": "./src/configure-webpack.js",
+  "repository": "github:CharlesStover/configure-webpack",
+  "bugs": {
+    "email": "configure-webpack@charlesstover.com",
+    "url": "https://github.com/CharlesStover/configure-webpack/issues"
+  },
+  "directories": {
+    "lib": "src"
+  },
+  "files": [
+    "src",
+    "package.json"
+  ],
+  "scripts": {
+    "build": "npm run prepublishOnly",
+    "prepublishOnly": "echo \"No build steps.\"",
+    "test": "echo \"No tests.\""
+  },
+  "dependencies": {
+    "css-loader": "^2.0.0",
+    "dotenv": "^8.0.0",
+    "inline-source-map": "^0.6.2",
+    "node-sass": "^4.0.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.0",
+    "sass-loader": "^7.0.0",
+    "style-loader": "^0.23.0",
+    "ts-loader": "^5.0.0",
+    "typescript": "^3.0.0"
+  },
+  "peerDependencies": {
+    "webpack": "^4.0.0",
+    "webpack-cli": "^3.0.0"
+  }
+}
