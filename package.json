@@ -1,6 +1,6 @@
 {
   "name": "configure-webpack",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Charles Stover <configure-webpack@charlesstover.com>",
   "description": "Easily generates a typical Webpack configuration.",
   "homepage": "https://github.com/CharlesStover/configure-webpack#readme",
