@@ -3,9 +3,9 @@ const dotenv = require('dotenv');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const path = require('path');
 
+dotenv.config();
 const CWD = process.cwd();
 const IS_DEV = process.env.NODE_ENV === 'development';
-dotenv.config();
 
 const PACKAGE_JSON = path.resolve(CWD, 'package.json');
 
