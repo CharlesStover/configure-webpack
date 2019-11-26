@@ -1,6 +1,6 @@
 {
   "name": "configure-webpack",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Charles Stover <configure-webpack@charlesstover.com>",
   "description": "Easily generates a typical Webpack configuration.",
   "homepage": "https://github.com/CharlesStover/configure-webpack#readme",
@@ -23,7 +23,7 @@
     "prepublishOnly": "echo \"No build steps.\"",
     "test": "echo \"No tests.\""
   },
-  "dependencies": {
+  "devDependencies": {
     "css-loader": "^2.0.0",
     "dotenv": "^8.0.0",
     "inline-source-map": "^0.6.2",
@@ -32,7 +32,8 @@
     "sass-loader": "^7.0.0",
     "style-loader": "^0.23.0",
     "ts-loader": "^5.0.0",
-    "typescript": "^3.0.0"
+    "typescript": "^3.0.0",
+    "url-loader": "^3.0.0"
   },
   "peerDependencies": {
     "webpack": "^4.0.0",

@@ -18,7 +18,17 @@ module.exports = function configureWebpack({ css, typescript, sass }) {
     externals: [],
     mode: IS_DEV ? 'development' : 'production',
     module: {
-      rules: [],
+      rules: [
+        // Images
+        {
+          loader: 'url-loader',
+          options: {
+            limit: 10240,
+            name: 'static/media/[name].[hash:8].[ext]',
+          },
+          test: [/\.(?:gif|jpg|png)$/],
+        },
+      ],
     },
     output: {
       filename: './index.js',
@@ -45,7 +55,7 @@ module.exports = function configureWebpack({ css, typescript, sass }) {
     // .ts, .tsx
     config.module.rules.push({
       loader: 'ts-loader',
-      test: /\.tsx?$/,
+      test: [/\.tsx?$/],
     });
     config.resolve.extensions.push('.ts');
     config.resolve.extensions.push('.tsx');
@@ -70,7 +80,7 @@ module.exports = function configureWebpack({ css, typescript, sass }) {
 
     // .css, .scss
     config.module.rules.push({
-      test: sass ? /\.s?css$/ : /\.css$/,
+      test: sass ? [/\.s?css$/] : [/\.css$/],
       use,
     });
   }
