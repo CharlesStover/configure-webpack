@@ -37,6 +37,12 @@ module.exports = function configureWebpack({ css, typescript, sass }) {
       path: path.resolve(CWD, 'dist'),
       umdNamedDefine: true,
     },
+    optimization: {
+      splitChunks: {
+        chunks: 'all',
+        minSize: 1024,
+      },
+    },
     performance: {
       maxAssetSize: IS_DEV ? 1024000 : 250000,
       maxEntrypointSize: IS_DEV ? 1024000 : 250000,
