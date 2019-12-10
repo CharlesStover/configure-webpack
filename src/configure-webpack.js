@@ -13,7 +13,7 @@ const { name, peerDependencies } = require(PACKAGE_JSON);
 
 module.exports = function configureWebpack({ css, typescript, sass }) {
   const config = {
-    devtool: IS_DEV ? 'inline-source-map' : undefined,
+    devtool: IS_DEV ? 'eval-source-map' : undefined,
     entry: [],
     externals: [],
     mode: IS_DEV ? 'development' : 'production',
@@ -30,18 +30,18 @@ module.exports = function configureWebpack({ css, typescript, sass }) {
         },
       ],
     },
+    optimization: {
+      splitChunks: {
+        chunks: 'all',
+        minSize: 1024,
+      },
+    },
     output: {
       filename: './index.js',
       library: name,
       libraryTarget: 'umd',
       path: path.resolve(CWD, 'dist'),
       umdNamedDefine: true,
-    },
-    optimization: {
-      splitChunks: {
-        chunks: 'all',
-        minSize: 1024,
-      },
     },
     performance: {
       maxAssetSize: IS_DEV ? 1024000 : 250000,
